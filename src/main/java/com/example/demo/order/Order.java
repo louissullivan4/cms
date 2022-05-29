@@ -9,6 +9,8 @@ public class Order {
     private float weight = 0.00f;  // kg
     private String sourceAddr = null;
     private String currentLoc =  null;
+    private String destAddr =  null;
+
 
     public Order(String orderNum, float basePrice, float weight, String sourceAddr, String destAddr) {
         this.orderNum = orderNum;
@@ -17,6 +19,8 @@ public class Order {
         this.sourceAddr = sourceAddr;
         this.currentLoc = sourceAddr;
         calculateDeliveryCost(destAddr);
+        this.destAddr = destAddr;
+
     }
 
     //THIS IS JUST A CONCEPT ! WOULD NEED TO INTERGREATE WITH GOOGLE CLOUD (MAPS)
@@ -109,5 +113,13 @@ public class Order {
 
     void setCurrentrLoc( String val ){
         this.currentLoc = val;
+    }
+
+    public String getDestAddr() {
+        return destAddr;
+    }
+
+    public void setDestAddr(String destAddr) {
+        this.destAddr = destAddr;
     }
 }

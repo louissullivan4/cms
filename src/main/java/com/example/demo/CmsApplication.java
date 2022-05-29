@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.customer.Customer;
+import com.example.demo.order.Order;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -18,13 +19,11 @@ public class CmsApplication {
 	}
 
 	@GetMapping
-	public List<Customer> hello() {
+	public List<Order> hello() {
+		Customer louis = new Customer("louis", "Sullivan", "City A");
+		Order order1 = new Order("1A", 20.00f, 5.00f, "City C", louis.getAddress());
 		return List.of(
-				new Customer(
-						"louis",
-						"Sullivan",
-						"City A"
-				)
+				order1
 		);
 	}
 }
